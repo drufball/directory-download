@@ -17,7 +17,13 @@ __Using webkitRelativePath__
 ```javascript
 file1 = new File([contents1], 'myFile.txt');
 file2 = new File([contents2], 'pic.jpg', { path: 'images' });
-navigator.saveDirectory([file1, file2], 'dirName');
+navigator.saveDirectory([file1, file2], 'dirName')
+.then(function(response) {
+    console.log("saved!");
+})
+.catch(function(error) {
+    console.log("failed.");
+});
 ```
 
 __Using `DirectoryEntry`__
@@ -26,7 +32,13 @@ let myDir = fs.root.getDirectory('dirName', {create:true}, dir => {
     dir.getDirectory('images', {create:true}, subDir => {
         subDir.getFile('pic.jpg', {create:true}, file => {
             myDir.getFile('myFile.txt', {create:true} otherFile => {
-                navigator.saveDirectory(myDir, 'dirName');
+                navigator.saveDirectory(myDir, 'dirName')
+                .then(function(response) {
+                    console.log("saved!");
+                })
+                .catch(function(error) {
+                    console.log("failed.");
+                });
             });
         });
     });
