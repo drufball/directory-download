@@ -5,7 +5,7 @@ Directory download functionality could be added using existing primitives with r
 `File.webkitRelativePath` is supported by most major browsers and enables a flattened view of directory structure. Currently, though, this path can only be populated when the user uploads a directory. Adding a `path` property to the `File` constructor would allow sites to create their own directory structure without introducing any new primitives to the web platform.
 
 # `DirectoryEntry`
-`DirectoryEntry` recently has been supported by all major browsers. This primitive already enables construction of a tree-view directory structure.
+`DirectoryEntry` is supported in Chrome. Firefox and Edge have stated that they plan to support it in a future release. This primitive already enables construction of a tree-view directory structure.
 
 # `Navigator.saveDirectory()`
 The primary missing piece is a way to save the constructed directory objects. Calling `Navigator.saveDirectory()` would behave the same way as saving a file does in browsers today. A "Save as..." dialog could be opened, the directory could be automatically saved to Downloads, the user could rename the directory, etc.
